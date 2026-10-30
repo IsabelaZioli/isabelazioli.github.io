@@ -111,6 +111,10 @@
   .btn-primary:hover { background: var(--rose-dark); }
   .btn-ghost { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.8); }
   .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+  .contact-direct { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .contact-direct a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+  .copy-btn { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.8); border-radius: 100px; padding: 0.3rem 0.9rem; font: inherit; font-size: 0.78rem; cursor: pointer; transition: background 0.2s; }
+  .copy-btn:hover { background: rgba(255,255,255,0.08); }
   footer { background: var(--text); border-top: 1px solid rgba(255,255,255,0.06); padding: 1.5rem 3rem; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -403,19 +407,35 @@
     <h2 class="section-title" style="color: var(--white);">Open to opportunities<br>in game design & UX</h2>
     <p class="section-sub">I'm looking for my first formal role in the industry — QA, localization, UX, or game design. If you work on games that matter, I'd love to connect.</p>
     <div class="contact-links">
-      <a href="mailto:isabelabzioli@gmail.com" class="contact-btn btn-primary">✉ Send an email</a>
-      <a href="https://www.linkedin.com/in/isabelazioli/" target="_blank" class="contact-btn btn-ghost">LinkedIn →</a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=isabelabzioli@gmail.com&su=Hello%20Isabela%20(from%20your%20portfolio)" target="_blank" rel="noopener" class="contact-btn btn-primary">✉ Send an email</a>
+      <a href="https://wa.me/5542998225340?text=Hi%20Isabela%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener" class="contact-btn btn-ghost">WhatsApp →</a>
+      <a href="https://www.linkedin.com/in/isabelazioli/" target="_blank" rel="noopener" class="contact-btn btn-ghost">LinkedIn →</a>
     </div>
+    <p class="contact-direct">
+      <span>Prefer your own mail app?</span>
+      <a href="mailto:isabelabzioli@gmail.com">isabelabzioli@gmail.com</a>
+      <button type="button" class="copy-btn" id="copyEmail">Copy email</button>
+    </p>
   </div>
 </section>
 
-<footer>Isabela Zioli · Game Design & UX · 2025</footer>
+<footer>Isabela Zioli · Game Design & UX · 2026</footer>
 
 <script>
 function toggle(header) {
   const item = header.parentElement;
   item.classList.toggle('open');
 }
+
+document.getElementById('copyEmail').addEventListener('click', function () {
+  var btn = this, email = 'isabelabzioli@gmail.com';
+  function done() { btn.textContent = 'Copied!'; setTimeout(function () { btn.textContent = 'Copy email'; }, 2000); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(done, function () { window.prompt('Copy this email:', email); });
+  } else {
+    window.prompt('Copy this email:', email);
+  }
+});
 </script>
 </body>
 </html>
